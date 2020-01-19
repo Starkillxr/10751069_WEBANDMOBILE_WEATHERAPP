@@ -1,3 +1,43 @@
 <resources>
-    <string name="app_name">10751069_WEATHERAPP</string>
+    <string name="app_name">My Weather App</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCg6Ln-SKexcz-EnkmwEFiWYEKNb8G5f6c</string>
+    <string name="plymouth_uk">Plymouth, UK</string>
+    <string name="_25_december_2019_15_08_pm">25th December, 2019</string>
+    <string name="_29c">29°C</string>
+    <string name="clear_sky">Clear Sky</string>
+    <string name="min_temp_05_05_am">Min Temp: 05:05 AM</string>
+    <string name="max_temp_05_05_pm">Max Temp: 05:05 PM</string>
+    <string name="_06_40_am">06:40 AM</string>
+    <string name="created_by">Created By</string>
+    <string name="thomas_jago">Thomas Jago</string>
+    <string name="something_went_wrong">Something went wrong</string>
+
+    <string name ="open_weather_mapps_app_id"></string>
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
+
+    <string name="place_not_found">Sorry, no weather data found.</string>
+
+    <string name="change_city">Change City</string>
+    <string name="json_request">JSON Request</string>
+    <string name="forecast">Forecast</string>
+    <string name="temperature_map">Map</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="confirm_email">Confirm Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+    <string name="pressure">Pressure</string>
+    <string name="information">information</string>
+    <string name="humidity">Humidity</string>
 </resources>
