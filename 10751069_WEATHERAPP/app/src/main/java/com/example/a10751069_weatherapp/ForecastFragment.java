@@ -95,9 +95,9 @@ public class ForecastFragment extends Fragment {
 
                 currentTemperatureField.setText(temp);
             }
-        };*/
+        };
         AppController.getInstance().addToRequestQueue(jsonObjectRequest, TAG);
-
+        */
         /**
          * as you can see this was not my first attempt at trying to get it to parse the variables correctly.
          *
