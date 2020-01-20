@@ -9,7 +9,7 @@
     <string name="max_temp_05_05_pm">Max Temp: 05:05 PM</string>
     <string name="_06_40_am">06:40 AM</string>
     <string name="created_by">Created By</string>
-    <string name="thomas_jago">Thomas Jago</string>
+    <string name="thomas">Thomas</string>
     <string name="something_went_wrong">Something went wrong</string>
 
     <string name ="open_weather_mapps_app_id"></string>
@@ -40,4 +40,7 @@
     <string name="pressure">Pressure</string>
     <string name="information">information</string>
     <string name="humidity">Humidity</string>
+    <string name="_1050_4_h">1050.4 hPa</string>
+    <string name="_78">78%</string>
+    <string name="jago">Jago</string>
 </resources>

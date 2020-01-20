@@ -109,8 +109,11 @@ public class MainActivity extends AppCompatActivity {
     /**
      * String urlJsonArray stores the api for the JSON array from openweather
      */
-    public static String urlJsonArry = "http://api.openweathermap.org/data/2.5/forecast?id=2640194&units=metric&APPID=faf15c72035a522d6e027c2be057069c";
+    public static String urlJsonArry = "http://api.openweathermap.org/data/2.5/weather?id=2640194&units=metric&APPID=faf15c72035a522d6e027c2be057069c";
 
+    /**
+     * The constant TAG.
+     */
     public static String TAG = MainActivity.class.getSimpleName();
 
     /**
@@ -124,6 +127,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView txtResponse;
 
+    /**
+     * Make json array request.
+     */
     public void makeJsonArrayRequest(){
 
         showpDialog();

@@ -10,14 +10,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 
-    /**
-     * The type Map fragment.
-     */
-    public class MapFragment extends Fragment {
+/**
+ * The type Map fragment.
+ */
+public class MapFragment extends Fragment {
 
-        /**
-         * Instantiates a new Map fragment.
-         */
+    /**
+     * Instantiates a new Map fragment.
+     */
 //String url = "https://maps.openweathermap.io/map/temp_new/256/256/256.json?appid=faf15c72035a522d6e027c2be057069c";
         public MapFragment() {
 

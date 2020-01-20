@@ -9,16 +9,18 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The type Forecast fragment.
@@ -66,8 +68,42 @@ public class ForecastFragment extends Fragment {
         String city = "Plymouth, UK";
         cityField.setText(city);
         String urlJsonArry = MainActivity.urlJsonArry;
-        final String TAG = MainActivity.TAG;
-        /*JsonArrayRequest req = new JsonArrayRequest(urlJsonArry, new Response.Listener<JSONArray>() {
+        final String TAG = "json_url_req";
+        LocalDateTime localDateTime = LocalDateTime.now();
+        updatedField = (TextView) rootView.findViewById(R.id.updated_field);
+        DateTimeFormatter localDateTimeFormat = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm");
+        updatedField.setText("Last Update: " + localDateTime.format(localDateTimeFormat));
+        /**
+         * This is supposed to get the variables required to display on the ForecastFragment
+         * But currently unable to figure out how to get it to do so.
+         */
+        /*JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlJsonArry, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.d(TAG, response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG,"Error: " +error.getMessage());
+            }
+        }){
+            @Override
+            public Map getParams(){
+                Map temp = new HashMap();
+                temp.get("temp");
+
+                currentTemperatureField.setText(temp);
+            }
+        };*/
+        AppController.getInstance().addToRequestQueue(jsonObjectRequest, TAG);
+
+        /**
+         * as you can see this was not my first attempt at trying to get it to parse the variables correctly.
+         *
+         */
+        /*
+        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 updatedField = (TextView) rootView.findViewById(R.id.updated_field);
@@ -76,6 +112,7 @@ public class ForecastFragment extends Fragment {
                 updatedField.setText("Last Update: " + updatedOn);
                 currentTemperatureField = (TextView) rootView.findViewById(R.id.current_temperature);
             }*/
+
         return rootView;
     }
 
