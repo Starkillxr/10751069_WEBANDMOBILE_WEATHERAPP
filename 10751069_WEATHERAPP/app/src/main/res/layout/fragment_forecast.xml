@@ -192,12 +192,12 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/about"
                             android:textSize="15sp"
-                            android:text="@string/thomas"/>
+                            android:text="@string/John"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
-                            android:text="@string/jago"/>
+                            android:text="@string/Appleseed"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
