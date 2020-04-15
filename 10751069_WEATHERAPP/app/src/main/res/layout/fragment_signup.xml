@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignupFragment"
-    android:background="@drawable/forecast_bg">
+    android:background="@color/secondaryColor">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="15dp">
 
 
         <TextView
@@ -17,10 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
-            android:layout_marginTop="191dp"
             android:text="@string/sign_up"
             android:textSize="72sp"
-            android:textColor="#000000"/>
+            android:textColor="@color/secondaryTextColor" />
 
         <LinearLayout
             android:id="@+id/email"
@@ -38,7 +38,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:text="@string/email"
-                android:textColor="#000000"
+                android:textColor="@color/secondaryTextColor"
                 android:padding="5dp"/>
 
             <EditText
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
-                android:background="#FFFFFF"
+                android:background="@color/secondaryLightColor"
                 android:text="@string/email"
                 android:padding="5dp"/>
         </LinearLayout>
@@ -63,7 +63,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:text="@string/confirm_email"
-                android:textColor="#000000"
+                android:textColor="@color/secondaryTextColor"
                 android:padding="5dp"/>
 
             <EditText
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
-                android:background="#FFFFFF"
+                android:background="@color/secondaryLightColor"
                 android:text="@string/confirm_email"
                 android:padding="5dp"/>
         </LinearLayout>
@@ -92,7 +92,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:text="@string/password"
-                android:textColor="#000000"
+                android:textColor="@color/secondaryTextColor"
                 android:padding="5dp"/>
 
             <EditText
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
-                android:background="#ffffff"
+                android:background="@color/secondaryLightColor"
                 android:text="@string/password"
                 android:padding="5dp"/>
         </LinearLayout>
@@ -121,7 +121,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:text="@string/confirm_password"
-                android:textColor="#000000"
+                android:textColor="@color/secondaryTextColor"
                 android:padding="5dp"/>
 
             <EditText
@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
-                android:background="#ffffff"
+                android:background="@color/secondaryLightColor"
                 android:padding="5dp"
                 android:text="@string/confirm_password" />
         </LinearLayout>
@@ -139,7 +139,8 @@
             android:text="@string/submit"
             android:layout_below="@+id/confirmPassword"
             android:layout_centerHorizontal="true"
-            android:background="#ffffff"
+            android:background="@color/secondaryLightColor"
+            android:textColor="@color/secondaryTextColor"
             android:layout_marginTop="10dp"/>
     </RelativeLayout>
 </FrameLayout>

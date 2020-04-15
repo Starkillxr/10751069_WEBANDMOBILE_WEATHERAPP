@@ -13,20 +13,10 @@
     <string name="something_went_wrong">Something went wrong</string>
 
     <string name ="open_weather_mapps_app_id"></string>
-    <string name="weather_sunny">&#xf00d;</string>
-    <string name="weather_clear_night">&#xf02e;</string>
-
-    <string name="weather_foggy">&#xf014;</string>
-    <string name="weather_cloudy">&#xf013;</string>
-    <string name="weather_rainy">&#xf019;</string>
-    <string name="weather_snowy">&#xf01b;</string>
-    <string name="weather_thunder">&#xf01e;</string>
-    <string name="weather_drizzle">&#xf01c;</string>
-
     <string name="place_not_found">Sorry, no weather data found.</string>
 
     <string name="change_city">Change City</string>
-    <string name="json_request">JSON Request</string>
+   <string name="settings">Settings</string>
     <string name="forecast">Forecast</string>
     <string name="temperature_map">Map</string>
     <string name="login">Login</string>
@@ -43,4 +33,11 @@
     <string name="_1050_4_h">1050.4 hPa</string>
     <string name="_78">78%</string>
     <string name="Appleseed">Appleseed</string>
+    <string name="wind">wind</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="_25mph">25mph</string>
+    <string name="north_west">North-West</string>
+    <string name="wind_direction">Wind Direction</string>
+    <string name="weather_condition">weather condition</string>
+    <string name="tom_jago">Tom Jago</string>
 </resources>

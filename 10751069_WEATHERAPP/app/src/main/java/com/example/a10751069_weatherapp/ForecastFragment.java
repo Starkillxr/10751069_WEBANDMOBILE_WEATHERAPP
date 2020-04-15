@@ -1,7 +1,7 @@
 package com.example.a10751069_weatherapp;
 
+import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,48 +10,29 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.a10751069_weatherapp.Volley.AppController;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Calendar;
 
 /**
  * The type Forecast fragment.
  */
 public class ForecastFragment extends Fragment {
 
-    /**
-     * The City field.
-     */
-    TextView cityField;
-    /**
-     * The Updated field.
-     */
-    TextView updatedField;
-    /**
-     * The Details field.
-     */
-    TextView detailsField;
-    /**
-     * The Current temperature field.
-     */
-    TextView currentTemperatureField;
-    /**
-     * The Weather icon.
-     */
-    TextView weatherIcon;
+    TextView temp,city,description,date,pressure,humidity,windspeed,winddirection;
 
-    /**
-     * Instantiates a new Forecast fragment.
-     */
-//private TextView address;
     public ForecastFragment() {
 
     }
@@ -64,131 +45,107 @@ public class ForecastFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_forecast, container, false);
-        cityField = (TextView) rootView.findViewById(R.id.city_field);
-        String city = "Plymouth, UK";
-        cityField.setText(city);
-        String urlJsonArry = MainActivity.urlJsonArry;
-        final String TAG = "json_url_req";
-        LocalDateTime localDateTime = LocalDateTime.now();
-        updatedField = (TextView) rootView.findViewById(R.id.updated_field);
-        DateTimeFormatter localDateTimeFormat = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm");
-        updatedField.setText("Last Update: " + localDateTime.format(localDateTimeFormat));
-        /**
-         * This is supposed to get the variables required to display on the ForecastFragment
-         * But currently unable to figure out how to get it to do so.
-         */
-        /*JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlJsonArry, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG,"Error: " +error.getMessage());
-            }
-        }){
-            @Override
-            public Map getParams(){
-                Map temp = new HashMap();
-                temp.get("temp");
+        temp = (TextView) rootView.findViewById(R.id.current_temperature);
+        city = (TextView) rootView.findViewById(R.id.city_field);
+        description = (TextView) rootView.findViewById(R.id.description);
+        date = (TextView) rootView.findViewById(R.id.updated_field);
+        pressure = (TextView) rootView.findViewById(R.id.pressure);
+        humidity = (TextView) rootView.findViewById(R.id.humidity);
+        windspeed = (TextView) rootView.findViewById(R.id.windspeed);
+        winddirection = (TextView) rootView.findViewById(R.id.winddirection);
+        String URL = "http://api.openweathermap.org/data/2" +
+                ".5/weather?id=2640194&units=imperial&appid=faf15c72035a522d6e027c2be057069c";
+//help with json parsing found at https://www.youtube.com/watch?v=8-7Ip6xum6E
+        JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, URL, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONObject main = response.getJSONObject("main");
+                            JSONArray array = response.getJSONArray("weather");
+                            JSONObject object = array.getJSONObject(0);
+                            String temperature = String.valueOf(main.getDouble("temp"));
+                            String aDescription = object.getString("description");
+                            String aCity = response.getString("name");
+                            String thePressure = main.getString("pressure");
+                            String theHumidity = main.getString("humidity");
+                            JSONObject wind = response.getJSONObject("wind");
+                            String theSpeed = wind.getString("speed");
+                            String direction = wind.getString("deg");
 
-                currentTemperatureField.setText(temp);
-            }
-        };
-        AppController.getInstance().addToRequestQueue(jsonObjectRequest, TAG);
-        */
-        /**
-         * as you can see this was not my first attempt at trying to get it to parse the variables correctly.
-         *
-         */
-        /*
-        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                updatedField = (TextView) rootView.findViewById(R.id.updated_field);
-                DateFormat df = DateFormat.getDateInstance();
-                String updatedOn = df.format(new Date(response.getInt(Integer.parseInt("dt")) * 1000));
-                updatedField.setText("Last Update: " + updatedOn);
-                currentTemperatureField = (TextView) rootView.findViewById(R.id.current_temperature);
-            }*/
-
-        return rootView;
-    }
-
-    /*Typeface weatherFont;
-
-    TextView cityField;
-    TextView updatedField;
-    TextView detailsField;
-    TextView currentTemperatureField;
-    TextView weatherIcon;
-
-    Handler handler;*/
-
-    /*public ForecastFragment(){
-        handler = new Handler();
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
-        View rootView = inflater.inflate(R.layout.fragment_forecast, container, false);
-        cityField = (TextView)rootView.findViewById(R.id.city_field);
-        updatedField = (TextView) rootView.findViewById(R.id.updated_field);
-        currentTemperatureField = (TextView) rootView.findViewById(R.id.current_temperature);
-        weatherIcon = (TextView)rootView.findViewById(R.id.weather_icon);
-
-        weatherIcon.setTypeface(weatherFont);
-        return rootView;
-    }*/
-
-    /*@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+                            //temp.setText(temperature);
+                            city.setText(aCity);
+                            description.setText(aDescription);
+                            pressure.setText(thePressure + " hPa");
+                            humidity.setText(theHumidity +"%");
+                            windspeed.setText(theSpeed + " mph");
 
 
-        weatherFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/weather.ttf");
-        //updateWeatherData(new CityPreference(getActivity()).getCity());
-    }*/
+                            Calendar calendar= Calendar.getInstance();
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-YYYY");
+                            String aDate = sdf.format(calendar.getTime());
+                            date.setText(aDate);
 
-    /*private void updateWeatherData(final String city){
-        new Thread(){
-            public void run(){
-                final JSONObject json = RemoteFetch.getJSON(getActivity(), city);
-                if(json == null){
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getActivity(), getActivity().getString(R.string.place_not_found),Toast.LENGTH_SHORT).show();
+                            double temp_int = Double.parseDouble(temperature);
+                            double cels = (temp_int - 32) / 1.8000;
+                            cels = Math.round(cels);
+                            int i = (int) cels;
+                            String celsius = String.valueOf(i);
+                            temp.setText(celsius + "°C");
+
+                            int directionInDegrees = Integer.parseInt(direction);
+// conversion for direction found at https://blog.catzie.net/java-method-to-convert-degrees-into-directions-16-wind-compass-rose/
+                                if( (directionInDegrees >= 348.75) && (directionInDegrees <= 360) ||
+                                        (directionInDegrees >= 0) && (directionInDegrees <= 11.25)    ){
+                                    winddirection.setText("N");
+                                } else if( (directionInDegrees >= 11.25 ) && (directionInDegrees <= 33.75)){
+                                    winddirection.setText("NNE");
+                                } else if( (directionInDegrees >= 33.75 ) &&(directionInDegrees <= 56.25)){
+                                    winddirection.setText("NE");
+                                } else if( (directionInDegrees >= 56.25 ) && (directionInDegrees <= 78.75)){
+                                    winddirection.setText("ENE");
+                                } else if( (directionInDegrees >= 78.75 ) && (directionInDegrees <= 101.25) ){
+                                    winddirection.setText("E");
+                                } else if( (directionInDegrees >= 101.25) && (directionInDegrees <= 123.75) ){
+                                    winddirection.setText("ESE");
+                                } else if( (directionInDegrees >= 123.75) && (directionInDegrees <= 146.25) ){
+                                    winddirection.setText("SE");
+                                } else if( (directionInDegrees >= 146.25) && (directionInDegrees <= 168.75) ){
+                                    winddirection.setText("SSE");
+                                } else if( (directionInDegrees >= 168.75) && (directionInDegrees <= 191.25) ){
+                                    winddirection.setText("S");
+                                } else if( (directionInDegrees >= 191.25) && (directionInDegrees <= 213.75) ){
+                                    winddirection.setText("SSW");
+                                } else if( (directionInDegrees >= 213.75) && (directionInDegrees <= 236.25) ){
+                                    winddirection.setText("SW");
+                                } else if( (directionInDegrees >= 236.25) && (directionInDegrees <= 258.75) ){
+                                    winddirection.setText("WSW");
+                                } else if( (directionInDegrees >= 258.75) && (directionInDegrees <= 281.25) ){
+                                    winddirection.setText("W");
+                                } else if( (directionInDegrees >= 281.25) && (directionInDegrees <= 303.75) ){
+                                    winddirection.setText("WNW");
+                                } else if( (directionInDegrees >= 303.75) && (directionInDegrees <= 326.25) ){
+                                    winddirection.setText("NW");
+                                } else if( (directionInDegrees >= 326.25) && (directionInDegrees <= 348.75) ){
+                                    winddirection.setText("NNW");
+                                } else {
+                                    winddirection.setText("?");
+                                }
+
+                        }catch(JSONException e){
+                            e.printStackTrace();
                         }
-                    });
-                }else{
-                    handler.post(new Runnable(){
-                        public void run(){
-                            renderWeather(json);
-                        }
-                    });
-                }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error){
+
             }
-        }.start();
-    }
-
-    private void renderWeather(JSONObject json){
-        try{
-            cityField.setText(json.getString("name").toUpperCase(Locale.ENGLISH) + ", " + json.getJSONObject("sys").getString("country"));
-
-            JSONObject details = json.getJSONArray("weather").getJSONObject(0);
-            JSONObject main = json.getJSONObject("main");
-            detailsField.setText(details.getString("description").toUpperCase(Locale.ENGLISH) + "\n" + "Humidity: " + main.getString("humidity") + "%" + "\n" + "Pressure: " + main.getString("pressure") + " hpa");
-
-            currentTemperatureField.setText(String.format("%.2f", main.getDouble("temp"))+ " ℃");
-
-            DateFormat df = DateFormat.getDateInstance();
-            String updatedOn = df.format(new Date(json.getLong("dt")*1000));
-            updatedField.setText("Last update: " +updatedOn);
-        }catch(Exception e){
-            Log.e("SimpleWeather", "One or more fields not found in the JSON data");
         }
-    }*/
+        );
+        AppController.getInstance(this).addToRequestQueue(jor);
+        return rootView;
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.example.a10751069_weatherapp;
+package com.example.a10751069_weatherapp.Volley;
 
 /**
  * Learnt this from https://www.androidhive.info/2014/09/android-json-parsing-using-volley/
@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.a10751069_weatherapp.ForecastFragment;
 
 /**
  * The type App controller.
@@ -36,8 +37,9 @@ public class AppController extends Application {
      * Get instance app controller.
      *
      * @return the app controller
+     * @param weatherData
      */
-    public static synchronized AppController getInstance() {
+    public static synchronized AppController getInstance(ForecastFragment weatherData) {
         return mInstance;
     }
 

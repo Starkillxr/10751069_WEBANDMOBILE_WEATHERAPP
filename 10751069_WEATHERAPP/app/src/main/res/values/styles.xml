@@ -3,11 +3,11 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#006080</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:navigationBarColor">#006080</item>
-        <item name="android:windowBackground">@drawable/forecast_bg</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/primaryLightColor</item>
+        <item name="android:navigationBarColor">@color/primaryLightColor</item>
+        <item name="android:windowBackground">#FFFFFF</item>
     </style>
 
 </resources>

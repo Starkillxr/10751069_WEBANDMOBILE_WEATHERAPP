@@ -5,32 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginFragment"
-    android:background="@drawable/forecast_bg">
+    android:background="@color/secondaryColor">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
+        android:layout_height="match_parent"
+        android:padding="15dp">
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_above="@+id/titleBox"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleBox"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="191dp"
             android:text="@string/login"
             android:textSize="72sp"
-            android:textColor="#000000"/>
+            android:textColor="@color/secondaryTextColor"
+            android:id="@+id/title"
+            android:padding="4dp"
+            android:textAlignment="center"/>
+        </RelativeLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/titleBox"
+            android:id="@+id/spacer"/>
         <LinearLayout
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_below="@+id/spacer">
 
             <TextView
                 android:layout_width="0dp"
@@ -38,7 +52,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:text="@string/email"
-                android:textColor="#000000"
+                android:textColor="@color/secondaryTextColor"
                 android:padding="5dp"/>
 
             <EditText
@@ -46,8 +60,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
-                android:background="#FFFFFF"
+                android:background="@color/secondaryLightColor"
                 android:text="@string/email"
+                android:textColor="@color/secondaryTextColor"
                 android:padding="5dp"/>
         </LinearLayout>
 
@@ -67,7 +82,7 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:text="@string/password"
-                android:textColor="#000000"
+                android:textColor="@color/secondaryTextColor"
                 android:padding="5dp"/>
 
             <EditText
@@ -75,7 +90,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
-                android:background="#ffffff"
+                android:background="@color/secondaryLightColor"
+                android:textColor="@color/secondaryTextColor"
                 android:text="@string/password"
                 android:padding="5dp"/>
         </LinearLayout>
@@ -85,8 +101,9 @@
             android:text="@string/submit"
             android:layout_below="@+id/password"
             android:layout_centerHorizontal="true"
-            android:background="#ffffff"
-            android:layout_marginTop="10dp"/>
+            android:background="@color/secondaryLightColor"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/secondaryTextColor"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,7 +116,9 @@
                 android:text="@string/sign_up"
                 android:padding="1dp"
                 android:layout_marginEnd="1dp"
-                android:textColor="#000000"/>
+                android:textColor="@color/secondaryTextColor"
+                android:background="@color/secondaryLightColor"
+                android:id="@+id/signupBtn"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -107,7 +126,8 @@
                 android:text="@string/forgot_password"
                 android:padding="10dp"
                 android:layout_marginEnd="1dp"
-                android:textColor="#000000"/>
+                android:textColor="@color/secondaryTextColor"
+                android:background="@color/secondaryLightColor"/>
 
         </LinearLayout>
 

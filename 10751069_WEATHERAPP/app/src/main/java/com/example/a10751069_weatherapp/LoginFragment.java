@@ -23,6 +23,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     /**
@@ -47,10 +48,6 @@ public class LoginFragment extends Fragment {
             return true;
         }else if (email.indexOf(".co.uk") > -1& email.indexOf("@") > -1){
             return true;
-        }else if(email.indexOf(".gov.uk") > -1& email.indexOf("@") > -1){
-            return true;
-        }else{
-            return false;
-        }
+        }else return email.indexOf(".gov.uk") > -1 & email.indexOf("@") > -1;
     }
 }
